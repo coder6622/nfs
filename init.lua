@@ -7,6 +7,7 @@ require('treesitter-config')
 require('autopairs-config')
 require('keybindings')
 require('whichkey-config')
+require('telescope-config')
 
 vim.cmd[[colorscheme tokyonight]]
 
