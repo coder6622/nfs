@@ -21,6 +21,7 @@ vim.o.ignorecase = true  -- search
 vim.o.scrolloff = 3
 vim.o.sidescrolloff = 5
 vim.o.mouse = "a" -- enable our mouse click
+vim.o.mousemoveevent = true
 vim.wo.wrap = false 
 vim.wo.number = true
 vim.wo.relativenumber = true
