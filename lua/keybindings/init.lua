@@ -26,3 +26,7 @@ map('n', '-', '<C-x>', optsSilent)
 map('n', 'dw', 'vb"_d', optsSilent)
 
 map('n', '<C-h>', ':nohl<CR>', optsSilent)
+
+
+map('n', '<C-t>', ":ToggleTerm size=13 direction=horizontal<CR>", optsSilent)
+map('n', '<C-p>', ":ToggleTerm size=40 direction=vertical<CR>", optsSilent)

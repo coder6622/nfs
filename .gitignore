@@ -1,3 +1,4 @@
+lua-language-server/
 # Compiled Lua sources
 luac.out
 

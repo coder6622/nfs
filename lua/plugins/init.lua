@@ -4,8 +4,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Colorscheme
-  use 'folke/tokyonight.nvim'
+  -- Colorscheme-- Using Packer
+  --use 'navarasu/onedark.nvim'
+  use "olimorris/onedarkpro.nvim"
 
   -- Treesitter - hightlight syntax
   use {
@@ -41,4 +42,29 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
+  use 'onsails/lspkind.nvim'
+
+  use 'norcalli/nvim-colorizer.lua'
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup{current_line_blame = true,}
+    end
+  }
+
+  use 'glepnir/dashboard-nvim'
+
+  use "lukas-reineke/indent-blankline.nvim"
+  use "lukas-reineke/lsp-format.nvim"
+
+  use "akinsho/toggleterm.nvim"
 end)
