@@ -11,6 +11,7 @@ db.custom_header = {
     [[   █   █  █      ▄▄           ▄▀   ]],
 }
 
+db.default_executive = 'telescope'
 db.custom_center = {
   {desc="Hello coder6622!"},
   {desc="Of course, bad code can be cleaned up. But it’s very expensive.” — Robert C. Martin"},
