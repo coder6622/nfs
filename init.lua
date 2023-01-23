@@ -12,6 +12,7 @@ require('colorizer-config')
 require('dashboard-config')
 require('blankline-config')
 require('toggleterm-config')
+require('comment-config')
 require('lsp')
 
 vim.cmd[[colorscheme onedark]]

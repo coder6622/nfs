@@ -67,4 +67,6 @@ return require('packer').startup(function(use)
   use "lukas-reineke/lsp-format.nvim"
 
   use "akinsho/toggleterm.nvim"
+
+  use "terrortylor/nvim-comment" 
 end)
