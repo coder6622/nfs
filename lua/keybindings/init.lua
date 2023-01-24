@@ -30,3 +30,8 @@ map('n', '<C-h>', ':nohl<CR>', optsSilent)
 
 map('n', '<C-t>', ":ToggleTerm size=13 direction=horizontal<CR>", optsSilent)
 map('n', '<C-p>', ":ToggleTerm size=40 direction=vertical<CR>", optsSilent)
+
+map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>",
+    opts)
+map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>",
+    opts)

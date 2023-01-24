@@ -13,7 +13,7 @@ vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 require("indent_blankline").setup {
     show_current_context = true,
-    buftype_exclude = {"terminal"},
+    buftype_exclude = {"terminal", "nofile", "dashboard",  "NvimTree", "packer", "lsp-installer"},
     filetype_exclude = {"dashboard", "NvimTree", "packer", "lsp-installer"},
     show_current_context_start = true,
     show_end_of_line = true,

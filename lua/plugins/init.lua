@@ -149,5 +149,15 @@ return require('packer').startup(function(use)
   use {
     "terrortylor/nvim-comment",
     config = "require('comment-config')"
-  } 
+  }
+
+  use({
+      "glepnir/lspsaga.nvim",
+      branch = "main",
+      config = "require('lspsaga-config')"
+  })
+
+  use {
+      "williamboman/nvim-lsp-installer"
+  }
 end)
