@@ -1,21 +1,20 @@
-
 local wk = require("which-key")
 
 local Terminal = require('toggleterm.terminal').Terminal
 
 local toggle_lazygit = function()
-  local lazygit = Terminal:new({cmd = 'lazygit',direction = "float"})
+  local lazygit = Terminal:new({ cmd = 'lazygit', direction = "float" })
   return lazygit:toggle()
 end
 
 
 local mappings = {
-  q = {':wqa<cr>', 'Save and Quit'},
-  w = {':wa<cr>', 'Save all'},
-  s = {':PackerSync<cr>', 'Packer Sync'} ,
-  f = {':Telescope find_files<cr>', 'Find Files'},
-  r = {':Telescope live_grep<cr>', 'Live grep'},
-  R = {':Telescope resume<cr>', 'Telescope resume'},
+  q = { ':wqa<cr>', 'Save and Quit' },
+  w = { ':wa<cr>', 'Save all' },
+  s = { ':PackerSync<cr>', 'Packer Sync' },
+  f = { ':Telescope find_files<cr>', 'Find Files' },
+  r = { ':Telescope live_grep<cr>', 'Live grep' },
+  R = { ':Telescope resume<cr>', 'Telescope resume' },
 
   l = {
     name = "LSP",
@@ -41,9 +40,15 @@ local mappings = {
 
   t = {
     name = "Terminal",
-    l = {toggle_lazygit, "Lazygit Terminal"},
+    l = { toggle_lazygit, "Lazygit Terminal" },
+  },
+
+  z = {
+    name = "Focus mode",
+    z = { ":ZenMode<cr>", "Open zen mode" },
+    t = { ":Twilight<cr>", "Toggle Twilight" }
   }
 }
-local opts = {prefix = '<leader>' }
+local opts = { prefix = '<leader>' }
 
 wk.register(mappings, opts)
