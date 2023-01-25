@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
     config = "require('treesitter-config')"
   }
 
-  -- Lua line - status
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -93,7 +92,7 @@ return require('packer').startup(function(use)
     'glepnir/dashboard-nvim',
     config = "require('dashboard-config')",
     cmd = "Dasboard",
-    event = "BufEnter"
+    event = "VimEnter"
   }
 
   use {
@@ -114,4 +113,6 @@ return require('packer').startup(function(use)
 
   use { "folke/zen-mode.nvim", config = "require('zen-mode-config')" }
   use { "folke/twilight.nvim", config = "require('twilight-config')" }
+
+  use { "rrethy/vim-illuminate" }
 end)
