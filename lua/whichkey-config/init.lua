@@ -11,7 +11,6 @@ end
 local mappings = {
   q = { ':wqa<cr>', 'Save and Quit' },
   w = { ':wa<cr>', 'Save all' },
-  s = { ':PackerSync<cr>', 'Packer Sync' },
   f = { ':Telescope find_files<cr>', 'Find Files' },
   r = { ':Telescope live_grep<cr>', 'Live grep' },
   R = { ':Telescope resume<cr>', 'Telescope resume' },
@@ -47,6 +46,16 @@ local mappings = {
     name = "Focus mode",
     z = { ":ZenMode<cr>", "Open zen mode" },
     t = { ":Twilight<cr>", "Toggle Twilight" }
+  },
+  p = {
+    name = "Packer",
+    r = { ":PackerClean<cr>", "Remove Unused Plugins" },
+    c = { ":PackerCompile profile=true<cr>", "Recompile Plugins" },
+    i = { ":PackerInstall<cr>", "Install Plugins" },
+    p = { ":PackerProfile<cr>", "Packer Profile" },
+    s = { ":PackerSync<cr>", "Sync Plugins" },
+    S = { ":PackerStatus<cr>", "Packer Status" },
+    u = { ":PackerUpdate<cr>", "Update Plugins" }
   }
 }
 local opts = { prefix = '<leader>' }
