@@ -185,6 +185,8 @@ return require('packer').startup({
       config = "require('notify-config')",
       commit = "bdd647f61a05c9b8a57c83b78341a0690e9c29d7"
     }
+
+    use {'phaazon/hop.nvim', branch = 'v2', config = "require('hop-config')"}
   end,
   config = {
     display = {
