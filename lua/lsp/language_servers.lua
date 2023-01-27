@@ -19,21 +19,24 @@
 --
 --
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-local langServers = { 'html', 'cssls', 'tsserver', 'sumneko_lua', 'pyright', 'jsonls', 'emmet_ls' }
+local langServers = {
+  'html', 'cssls', 'tsserver', 'sumneko_lua', 'pyright', 'jsonls', 'emmet_ls', 'clangd'
+}
 -- capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
-local on_attach = function(client, bufnr)
-  -- if client.name == "tsserver" then client.server_capabilities.documentFormattingProvider = false end
+-- local on_attach = function(client, bufnr)
+--   if client.name == "clangd" then client.server_capabilities.offsetEncoding = "utf-8" end
 
-  -- if client.name == "sumneko_lua" then
-  --   client.server_capabilities.documentFormattingProvider = false
-  -- end
+--   -- if client.name == "sumneko_lua" then
+--   --   client.server_capabilities.documentFormattingProvider = false
+--   -- end
 
-  -- local status_ok, illuminate = pcall(require, "illuminate")
-  -- if not status_ok then return end
-  -- illuminate.on_attach(client)
-end
+--   -- local status_ok, illuminate = pcall(require, "illuminate")
+--   -- if not status_ok then return end
+--   -- illuminate.on_attach(client)
+-- end
 
 local settings = {
   ui = {
@@ -61,3 +64,8 @@ for _, server in pairs(langServers) do
 
   lspconfig[server].setup(opts)
 end
+-- require("mason-null-ls").setup({
+--   ensure_installed = nil,
+--   automatic_installation = true,
+--   automatic_setup = false,
+-- })
