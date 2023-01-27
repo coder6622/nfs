@@ -7,9 +7,16 @@ local toggle_lazygit = function()
   return lazygit:toggle()
 end
 
-
 local mappings = {
-  q = { ':wqa<cr>', 'Save and Quit' },
+  q = {
+    name = "Close",
+    a = { ':wqa<cr>',
+      'Save and Quit All' },
+    o = { ':wq<cr>',
+      'Save and Quit' },
+    t = { ':w|bdelete<cr>',
+      'Save And Quit Tab' }
+  },
   w = { ':wa<cr>', 'Save all' },
   f = { ':Telescope find_files<cr>', 'Find Files' },
   r = { ':Telescope live_grep<cr>', 'Live grep' },
@@ -37,10 +44,7 @@ local mappings = {
     N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" }
   },
 
-  t = {
-    name = "Terminal",
-    l = { toggle_lazygit, "Lazygit Terminal" },
-  },
+  t = { name = "Terminal", l = { toggle_lazygit, "Lazygit Terminal" } },
 
   z = {
     name = "Focus mode",

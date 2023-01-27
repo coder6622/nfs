@@ -1,24 +1,13 @@
 require("nvim-tree").setup {
   sort_by = "name",
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
+  open_on_tab = true,
+  hijack_directories = { enable = true, auto_open = true },
+  update_focused_file = { enable = true, update_cwd = true },
   renderer = {
     icons = {
       webdev_colors = true,
-      show = {
-        file = true,
-        folder = true,
-        folder_arrow = true,
-        git = true,
-        modified = true,
-      },
-    },
+      show = { file = true, folder = true, folder_arrow = true, git = true, modified = true }
+    }
   },
   view = {
     adaptive_size = false,
@@ -32,10 +21,6 @@ require("nvim-tree").setup {
     number = true,
     relativenumber = true,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-      },
-    },
+    mappings = { custom_only = false, list = {} }
   }
 }

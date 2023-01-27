@@ -1,5 +1,6 @@
 require('dashboard').setup {
-  theme = 'doom', 
+  theme = 'doom',
+  hide = {},
   config = {
     header = {
       [[          ▀████▀▄▄              ▄█ ]],
@@ -11,7 +12,7 @@ require('dashboard').setup {
       [[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
       [[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
       [[   █   █  █      ▄▄           ▄▀   ]]
-    },    
+    },
     center = {
       { desc = "Hello coder6622!" }, {
         desc = "Of course, bad code can be cleaned up. But it’s very expensive.” — Robert C. Martin"
@@ -23,6 +24,6 @@ require('dashboard').setup {
       { desc = "Talk is cheap. Show me the code. ― Linus Torvalds" },
       { desc = "If, at first, you do not succeed, call it version 1.0. ― Khayri R.R. Woulfe" },
       { desc = "Computers are fast; developers keep them slow. – Anonymous" }
-    },
+    }
   }
 }
