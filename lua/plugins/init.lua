@@ -11,6 +11,8 @@ local ensure_packer = function()
   return false
 end
 
+local packer_bootstrap = ensure_packer()
+
 return require('packer').startup({
   function(use)
     -- Packer can manage itself
@@ -38,7 +40,7 @@ return require('packer').startup({
     use {
       "nvim-treesitter/nvim-treesitter",
       run = function()
-        require("nvim-treesitter.install").update {with_sync = true}
+        require("nvim-treesitter.install").update { with_sync = true }
       end,
       event = "BufWinEnter",
       config = "require('treesitter-config')"
@@ -46,18 +48,18 @@ return require('packer').startup({
 
     use {
       'nvim-lualine/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true},
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       event = "BufWinEnter",
       config = "require('lualine-config')",
       commit = "d15019ce8ed45d8231c7b4d6ba00f803c6c92a85"
     }
 
-    use {'nvim-tree/nvim-web-devicons', commit = "3548363849878ef895ce54edda02421279b419d8"}
+    use { 'nvim-tree/nvim-web-devicons', commit = "3548363849878ef895ce54edda02421279b419d8" }
     -- -- buffer line
     use {
       'akinsho/bufferline.nvim',
       tag = 'v2.12.0',
-      requires = {'nvim-tree/nvim-web-devicons', opt = true},
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true },
       event = "BufWinEnter",
       config = "require('bufferline-config')"
     }
@@ -104,18 +106,18 @@ return require('packer').startup({
     use {
       'nvim-telescope/telescope.nvim',
       tag = '0.1.1',
-      requires = {{'nvim-lua/plenary.nvim'}},
+      requires = { { 'nvim-lua/plenary.nvim' } },
       config = "require('telescope-config')",
       cmd = "Telescope"
     }
 
-    use {'neovim/nvim-lspconfig', config = "require('lsp')"}
-    use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-buffer'}
-    use {'hrsh7th/nvim-cmp'}
-    use {'hrsh7th/cmp-vsnip'}
-    use {'hrsh7th/vim-vsnip'}
-    use {'onsails/lspkind.nvim'}
+    use { 'neovim/nvim-lspconfig', config = "require('lsp')" }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/vim-vsnip' }
+    use { 'onsails/lspkind.nvim' }
 
     use {
       'norcalli/nvim-colorizer.lua',
@@ -128,7 +130,7 @@ return require('packer').startup({
       'lewis6991/gitsigns.nvim',
       tag = "v0.6",
       config = function()
-        require('gitsigns').setup {current_line_blame = true}
+        require('gitsigns').setup { current_line_blame = true }
       end
     }
 
@@ -138,7 +140,7 @@ return require('packer').startup({
       config = "require('dashboard-config')",
       cmd = "Dasboard",
       event = "VimEnter",
-      requires = {'nvim-tree/nvim-web-devicons'}
+      requires = { 'nvim-tree/nvim-web-devicons' }
     }
 
     use {
@@ -160,12 +162,12 @@ return require('packer').startup({
       commit = "e9ac16ab056695cad6461173693069ec070d2b23"
     }
 
-    use({"glepnir/lspsaga.nvim", branch = "main", config = "require('lspsaga-config')"})
+    use({ "glepnir/lspsaga.nvim", branch = "main", config = "require('lspsaga-config')" })
 
-    use {'jose-elias-alvarez/null-ls.nvim', config = "require('null-ls-config')"}
-    use {"williamboman/mason.nvim"}
-    use {"williamboman/mason-lspconfig.nvim", config = "require('mason-null-ls-config')"}
-    use {"jay-babu/mason-null-ls.nvim"}
+    use { 'jose-elias-alvarez/null-ls.nvim', config = "require('null-ls-config')" }
+    use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim", config = "require('mason-null-ls-config')" }
+    use { "jay-babu/mason-null-ls.nvim" }
 
     use {
       "folke/zen-mode.nvim",
@@ -178,7 +180,7 @@ return require('packer').startup({
       commit = "5e88a2e542a37a5e8b8c2d202d7184711feb15f5"
     }
 
-    use {"rrethy/vim-illuminate", commit = "2d5e9b10aa75a8450d551ffde01ccc00c5f9ce70"}
+    use { "rrethy/vim-illuminate", commit = "2d5e9b10aa75a8450d551ffde01ccc00c5f9ce70" }
 
     use {
       'rcarriga/nvim-notify',
@@ -186,12 +188,20 @@ return require('packer').startup({
       commit = "bdd647f61a05c9b8a57c83b78341a0690e9c29d7"
     }
 
-    use {'phaazon/hop.nvim', branch = 'v2', config = "require('hop-config')"}
+    use { 'phaazon/hop.nvim', branch = 'v2', config = "require('hop-config')" }
+
+    use({
+      "kylechui/nvim-surround",
+      commit = "ad56e6234bf42fb7f7e4dccc7752e25abd5ec80e",
+      config = "require('surround-config')"
+    })
+
+    if packer_bootstrap then require('packer').sync() end
   end,
   config = {
     display = {
       open_fn = function()
-        return require('packer.util').float({border = 'single'})
+        return require('packer.util').float({ border = 'single' })
       end
     }
   }

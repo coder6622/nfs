@@ -206,6 +206,12 @@ _G.packer_plugins = {
     path = "/home/coder6622/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
   },
+  ["nvim-surround"] = {
+    config = { "require('surround-config')" },
+    loaded = true,
+    path = "/home/coder6622/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
   ["nvim-tree.lua"] = {
     commands = { "NvimTreeToggle" },
     config = { "require('nvim-tree-config')" },
@@ -312,18 +318,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: twilight.nvim
-time([[Config for twilight.nvim]], true)
-require('twilight-config')
-time([[Config for twilight.nvim]], false)
--- Config for: nvim-comment
-time([[Config for nvim-comment]], true)
-require('comment-config')
-time([[Config for nvim-comment]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require('toggleterm-config')
+time([[Config for toggleterm.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require('lsp')
 time([[Config for nvim-lspconfig]], false)
+-- Config for: twilight.nvim
+time([[Config for twilight.nvim]], true)
+require('twilight-config')
+time([[Config for twilight.nvim]], false)
+-- Config for: onedarkpro.nvim
+time([[Config for onedarkpro.nvim]], true)
+vim.cmd[[colorscheme onedark]]
+time([[Config for onedarkpro.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+require('surround-config')
+time([[Config for nvim-surround]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 require('null-ls-config')
@@ -332,30 +346,26 @@ time([[Config for null-ls.nvim]], false)
 time([[Config for lspsaga.nvim]], true)
 require('lspsaga-config')
 time([[Config for lspsaga.nvim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-require('notify-config')
-time([[Config for nvim-notify]], false)
--- Config for: onedarkpro.nvim
-time([[Config for onedarkpro.nvim]], true)
-vim.cmd[[colorscheme onedark]]
-time([[Config for onedarkpro.nvim]], false)
--- Config for: mason-lspconfig.nvim
-time([[Config for mason-lspconfig.nvim]], true)
-require('mason-null-ls-config')
-time([[Config for mason-lspconfig.nvim]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
-require('zen-mode-config')
-time([[Config for zen-mode.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require('toggleterm-config')
-time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+require('comment-config')
+time([[Config for nvim-comment]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\nQ\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\23current_line_blame\2\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+require('zen-mode-config')
+time([[Config for zen-mode.nvim]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+require('notify-config')
+time([[Config for nvim-notify]], false)
+-- Config for: mason-lspconfig.nvim
+time([[Config for mason-lspconfig.nvim]], true)
+require('mason-null-ls-config')
+time([[Config for mason-lspconfig.nvim]], false)
 -- Config for: hop.nvim
 time([[Config for hop.nvim]], true)
 require('hop-config')
@@ -372,12 +382,12 @@ time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Telescope', function(cmdargs)
-          require('packer.load')({'telescope.nvim'}, { cmd = 'Telescope', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+pcall(vim.api.nvim_create_user_command, 'Dasboard', function(cmdargs)
+          require('packer.load')({'dashboard-nvim'}, { cmd = 'Dasboard', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'telescope.nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Telescope ', 'cmdline')
+          require('packer.load')({'dashboard-nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Dasboard ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'NvimTreeToggle', function(cmdargs)
           require('packer.load')({'nvim-tree.lua'}, { cmd = 'NvimTreeToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
@@ -386,12 +396,12 @@ pcall(vim.api.nvim_create_user_command, 'NvimTreeToggle', function(cmdargs)
           require('packer.load')({'nvim-tree.lua'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('NvimTreeToggle ', 'cmdline')
       end})
-pcall(vim.api.nvim_create_user_command, 'Dasboard', function(cmdargs)
-          require('packer.load')({'dashboard-nvim'}, { cmd = 'Dasboard', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+pcall(vim.api.nvim_create_user_command, 'Telescope', function(cmdargs)
+          require('packer.load')({'telescope.nvim'}, { cmd = 'Telescope', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'dashboard-nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Dasboard ', 'cmdline')
+          require('packer.load')({'telescope.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Telescope ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
@@ -399,10 +409,10 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-colorizer.lua', 'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'nvim-treesitter', 'bufferline.nvim', 'which-key.nvim', 'lualine.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-ts-autotag'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim', 'bufferline.nvim', 'nvim-treesitter', 'lualine.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'indent-blankline.nvim', 'nvim-colorizer.lua'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
