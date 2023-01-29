@@ -1,51 +1,62 @@
 vim.g.mapleader = ' '
-local map = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local optsSilent = {noremap = true, silent = true}
 local opts = {noremap = true, silent = false}
 
-map('n', '<C-n>', ":NvimTreeToggle<CR>", optsSilent)
+keymap('n', '<C-n>', ":NvimTreeToggle<CR>", optsSilent)
 
 -- Resize with arrows
-map("n", "<C-Up>", ":resize -2<CR>", optsSilent)
-map("n", "<C-Down>", ":resize +2<CR>", optsSilent)
-map("n", "<C-Left>", ":vertical resize -2<CR>", optsSilent)
-map("n", "<C-Right>", ":vertical resize +2<CR>", optsSilent)
+keymap("n", "<C-Up>", ":resize -2<CR>", optsSilent)
+keymap("n", "<C-Down>", ":resize +2<CR>", optsSilent)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", optsSilent)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", optsSilent)
 
-map('v', '<', '<gv', opts)
-map('v', '>', '>gv', opts)
+keymap('v', '<', '<gv', opts)
+keymap('v', '>', '>gv', opts)
 
-map('n', 'x', '"_x', optsSilent) -- do not yank with x
+keymap('n', 'x', '"_x', optsSilent) -- do not yank with x
 
 -- increase/decrease number
-map('n', '+', '<C-a>', optsSilent)
-map('n', '-', '<C-x>', optsSilent)
+keymap('n', '+', '<C-a>', optsSilent)
+keymap('n', '-', '<C-x>', optsSilent)
 
 -- delete a word backwords
-map('n', 'dw', 'vb"_d', optsSilent)
+keymap('n', 'dw', 'vb"_d', optsSilent)
 
-map('n', '<C-h>', ':nohl<CR>', optsSilent)
+keymap('n', '<C-h>', ':nohl<CR>', optsSilent)
 
-map('n', '<C-t>', ":ToggleTerm size=13 direction=horizontal<CR>", optsSilent)
-map('n', '<C-p>', ":ToggleTerm size=40 direction=vertical<CR>", optsSilent)
+keymap('n', '<C-t>', ":ToggleTerm size=13 direction=horizontal<CR>", optsSilent)
+keymap('n', '<C-p>', ":ToggleTerm size=40 direction=vertical<CR>", optsSilent)
 
-map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
-map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
+keymap("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>", opts)
+keymap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", opts)
 
-map("n", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", {noremap = true})
-map("n", "<Leader><Leader>w", "<cmd>HopWordAC<CR>", {noremap = true})
-map("n", "<Leader><Leader>j", "<cmd>HopLineAC<CR>", {noremap = true})
-map("n", "<Leader><Leader>k", "<cmd>HopLineBC<CR>", {noremap = true})
+keymap("n", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", {noremap = true})
+keymap("n", "<Leader><Leader>w", "<cmd>HopWordAC<CR>", {noremap = true})
+keymap("n", "<Leader><Leader>j", "<cmd>HopLineAC<CR>", {noremap = true})
+keymap("n", "<Leader><Leader>k", "<cmd>HopLineBC<CR>", {noremap = true})
 
 -- visual mode (easymotion-like)
-map("v", "<Leader><Leader>w", "<cmd>HopWordAC<CR>", {noremap = true})
-map("v", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", {noremap = true})
-map("v", "<Leader><Leader>j", "<cmd>HopLineAC<CR>", {noremap = true})
-map("v", "<Leader><Leader>k", "<cmd>HopLineBC<CR>", {noremap = true})
+keymap("v", "<Leader><Leader>w", "<cmd>HopWordAC<CR>", {noremap = true})
+keymap("v", "<Leader><Leader>b", "<cmd>HopWordBC<CR>", {noremap = true})
+keymap("v", "<Leader><Leader>j", "<cmd>HopLineAC<CR>", {noremap = true})
+keymap("v", "<Leader><Leader>k", "<cmd>HopLineBC<CR>", {noremap = true})
 
 -- normal mode (sneak-like)
-map("n", "<Leader><Leader>f", "<cmd>HopChar2AC<CR>", {noremap = false})
-map("n", "<Leader><Leader>F", "<cmd>HopChar2BC<CR>", {noremap = false})
+keymap("n", "<Leader><Leader>f", "<cmd>HopChar2AC<CR>", {noremap = false})
+keymap("n", "<Leader><Leader>F", "<cmd>HopChar2BC<CR>", {noremap = false})
 
 -- visual mode (sneak-like)
-map("v", "<Leader><Leader>f", "<cmd>HopChar2AC<CR>", {noremap = false})
-map("v", "<Leader><Leader>F", "<cmd>HopChar2BC<CR>", {noremap = false})
+keymap("v", "<Leader><Leader>f", "<cmd>HopChar2AC<CR>", {noremap = false})
+keymap("v", "<Leader><Leader>F", "<cmd>HopChar2BC<CR>", {noremap = false})
+
+---- DAP
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
